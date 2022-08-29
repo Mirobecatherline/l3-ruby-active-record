@@ -2,10 +2,27 @@ require "pry"
 require "active_record"
 
 # TODO: CONNECT TO THE DATABASE
+ActiveRecord::Base.establish_connection(
+    adapter:"sqlite3",
+    database: "db/school.db"
+)
 
 # TODO: CREATE TABLE
+create_course_table=<<-SQL
+    CREATE TABLE IF NOT EXISTS courses(
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        description TEXT,
+        duration INTEGER
+    )       
+SQL
+ActiveRecord::Base.connection.execute(create_course_table)
 
 # TODO: Create class that associates with the db table
+
+class Course < ActiveRecord::Base
+
+end
 
 # TODO: VIEW METHODS AVAILABLE FOR TABLE (methods)
 
@@ -20,3 +37,4 @@ require "active_record"
 # TODO: FIND BY GIVEN CONDITIONS (find_by)
 
 # TODO: UPDATE RECORDS (save)
+binding.pry
