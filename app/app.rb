@@ -2,8 +2,13 @@ require "pry"
 require "active_record"
 
 # TODO: CONNECT TO THE DATABASE
+ActiveRecord::Base.establish-connection(
+    adapter:"sqlite3",
+    database: "db/school.db"
+)
 
 # TODO: CREATE TABLE
+sql
 
 # TODO: Create class that associates with the db table
 
